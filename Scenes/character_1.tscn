@@ -9,6 +9,7 @@ var health = 100
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 	
 func _physics_process(delta: float) -> void:
@@ -23,6 +24,19 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis(\"P1Left\", \"P1Right\")
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
+		
+	if is_on_floor(): #If touching floor
+		if direction == 0: #No input triggers idle
+			animated_sprite.play(\"\")
+		else: #Movement animation
+			animated_sprite.play(\"\")
+	else:
+		animated_sprite.play(\"\")
+		
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -70,6 +84,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0u0ux"]
 radius = 5.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mh4fh"]
+radius = 5.0990195
+
 [node name="Character1" type="CharacterBody2D" unique_id=316066722]
 script = SubResource("GDScript_041iq")
 
@@ -80,3 +97,9 @@ sprite_frames = SubResource("SpriteFrames_6nlah")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488769312]
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_0u0ux")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1031379892]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=139869052]
+position = Vector2(9, -8)
+shape = SubResource("CircleShape2D_mh4fh")
