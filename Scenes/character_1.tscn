@@ -10,24 +10,32 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
 const KNOCKBACK_STR = 150.0
 const KNOCKBACK_DAMP = 1200.0
+const COOLDOWN_TIME = 3.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var cooldown := 0.0
 var player1 = 2
 var knockback_vel = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
+	if cooldown > 0:
+		cooldown -= delta
 	
-		# Handle the \"MASK\" by displaying a new animation based 
+	# Handle the \"MASK\" by displaying a new animation based 
 	# on a button press
-	if Input.is_action_pressed(\"ATKey1\"):
-		animated_sprite.play(\"Rock\")
-		player1 = 1
-	if Input.is_action_pressed(\"ATKey2\"):
-		animated_sprite.play(\"Paper\")
-		player1 = 2
-	if Input.is_action_pressed(\"ATKey3\"):
-		animated_sprite.play(\"Scissors\")
-		player1 = 3
+	if cooldown <= 0:
+		if Input.is_action_just_pressed(\"ATKey1\"):
+			animated_sprite.play(\"Rock\")
+			player1 = 1
+			cooldown = COOLDOWN_TIME
+		if Input.is_action_just_pressed(\"ATKey2\"):
+			animated_sprite.play(\"Paper\")
+			player1 = 2
+			cooldown = COOLDOWN_TIME
+		if Input.is_action_just_pressed(\"ATKey3\"):
+			animated_sprite.play(\"Scissors\")
+			player1 = 3
+			cooldown = COOLDOWN_TIME
 	
 	
 	# Add the gravity.
@@ -77,7 +85,17 @@ func _on_player_hitbox_area_entered(area: Area2D) -> void:
 	apply_knockback(dir)
 	other.apply_knockback(-dir)
 	if other.is_in_group(\"Players\"):
-		print(\"Touched Player: \", area.name)
+		# They are same type
+		if player1 == other.player2:
+			print(\"Tie\")
+		
+		# Player 1 wins
+		elif (player1 == 1 && other.player2 == 3) || (player1 == 2 && other.player2 == 1) || (player1 == 3 && other.player2 == 2):
+			print(\"Player1 Wins\")
+		# Player 2 wins
+		else:
+			print(\"Player2 Wins\")
+		print(\"Touched Player: \", area.name, \" - Type: \", other.player2)
 	pass # Replace with function body.
 
 func apply_knockback(dir: Vector2):
@@ -111,10 +129,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0u0ux"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f101p"]
+size = Vector2(8, 2)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f101p"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_f101p"]
+radius = 5.0
 
 [node name="Character1" type="CharacterBody2D" unique_id=316066722 groups=["Players"]]
 z_index = 5
@@ -128,8 +147,7 @@ sprite_frames = SubResource("SpriteFrames_6nlah")
 animation = &"Paper"
 
 [node name="GroundHitbox" type="CollisionShape2D" parent="." unique_id=1488769312]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_0u0ux")
+shape = SubResource("RectangleShape2D_f101p")
 
 [node name="PlayerHitbox" type="Area2D" parent="." unique_id=1682150679]
 collision_layer = 2
@@ -137,6 +155,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" unique_id=1536721896]
 position = Vector2(0, -10)
-shape = SubResource("CapsuleShape2D_f101p")
+shape = SubResource("CircleShape2D_f101p")
 
 [connection signal="area_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_area_entered"]

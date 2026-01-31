@@ -88,6 +88,7 @@ ATKey9={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 drivers/rendering_device="vulkan"
 drivers/textures/canvas_textures/default_texture_filter=0
 drivers/rendering_device/driver.windows="d3d12"
