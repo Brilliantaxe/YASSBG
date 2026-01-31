@@ -441,5 +441,7 @@ position = Vector2(-140, -35)
 [node name="Platform8" parent="Platforms" unique_id=803552009 instance=ExtResource("4_3dryh")]
 position = Vector2(140, -35)
 
-[node name="Platform1" parent="." unique_id=1422929629 instance=ExtResource("4_3dryh")]
+[node name="Platform9" parent="Platforms" unique_id=1422929629 instance=ExtResource("4_3dryh")]
 position = Vector2(0, 69)
+
+[node name="HealthManager" type="Node" parent="." unique_id=2026938776]
