@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://doojqpitpo7o3"]
+
+[ext_resource type="Texture2D" uid="uid://0w78xvrcbg8e" path="res://Assets/Brackeys/platforms.png" id="1_l24li"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vm3t3"]
+size = Vector2(48, 10)
+
+[node name="Platform1" type="AnimatableBody2D" unique_id=237389464]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1495110764]
+scale = Vector2(1, 1.09375)
+texture = ExtResource("1_l24li")
+region_enabled = true
+region_rect = Rect2(0, 31.790981, 48.136818, 9.420536)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1256646262]
+shape = SubResource("RectangleShape2D_vm3t3")
+one_way_collision = true
