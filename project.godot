@@ -83,3 +83,7 @@ ATKey9={
 3d/physics_engine="Jolt Physics"
 
 [rendering]
+
+drivers/rendering_device="vulkan"
+drivers/textures/canvas_textures/default_texture_filter=0
+drivers/rendering_device/driver.windows="d3d12"

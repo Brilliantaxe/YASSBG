@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c1mq1nkrncejw"]
 
 [ext_resource type="Texture2D" uid="uid://0y6mjn7va7pn" path="res://Assets/OurStuff/YP.png" id="1_7uny3"]
-[ext_resource type="Texture2D" uid="uid://voedkf5djnnl" path="res://Assets/Test/knight.png" id="1_dueef"]
 [ext_resource type="Texture2D" uid="uid://decom3h6qyygx" path="res://Assets/OurStuff/YR.png" id="2_vynxn"]
 [ext_resource type="Texture2D" uid="uid://dg5ooq6ngnc8m" path="res://Assets/OurStuff/YS.png" id="3_m1gc2"]
 
@@ -48,22 +47,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 "
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xi17"]
-atlas = ExtResource("1_dueef")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o645a"]
-atlas = ExtResource("1_dueef")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7uny3"]
-atlas = ExtResource("1_dueef")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vynxn"]
-atlas = ExtResource("1_dueef")
-region = Rect2(96, 0, 32, 32)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1gc2"]
 animations = [{
 "frames": [{
@@ -89,23 +72,6 @@ animations = [{
 "loop": true,
 "name": &"Scissors",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5xi17")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o645a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7uny3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vynxn")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_40mip"]
@@ -117,9 +83,10 @@ collision_layer = 2
 script = SubResource("GDScript_fwxho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=940701166]
-position = Vector2(0, -12)
-scale = Vector2(0.1, 0.1)
+position = Vector2(0, -15)
+scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_m1gc2")
+animation = &"Paper"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1691979835]
 position = Vector2(0, -5)
