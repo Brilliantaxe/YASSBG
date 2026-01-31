@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dlpsyvn8imf6k"]
+
+[ext_resource type="Texture2D" uid="uid://voedkf5djnnl" path="res://Assets/Test/knight.png" id="1_mh4fh"]
+
+[sub_resource type="GDScript" id="GDScript_041iq"]
+script/source = "extends CharacterBody2D
+
+var health = 100
+
+const SPEED = 150.0
+const JUMP_VELOCITY = -300.0
+
+	
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"P1Jump\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"P1Left\", \"P1Right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gmyj"]
+atlas = ExtResource("1_mh4fh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f101p"]
+atlas = ExtResource("1_mh4fh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul2td"]
+atlas = ExtResource("1_mh4fh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j0ejx"]
+atlas = ExtResource("1_mh4fh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nlah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gmyj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f101p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul2td")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j0ejx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0u0ux"]
+radius = 5.0
+
+[node name="Character1" type="CharacterBody2D" unique_id=316066722]
+script = SubResource("GDScript_041iq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=371320363]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_6nlah")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1488769312]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_0u0ux")
