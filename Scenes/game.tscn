@@ -3,20 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://dlpsyvn8imf6k" path="res://Scenes/character_1.tscn" id="1_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c1mq1nkrncejw" path="res://Scenes/character_2.tscn" id="2_wrm1d"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3dryh"]
-
 [node name="Game" type="Node2D" unique_id=1080647280]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=110730928]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1160160295]
-shape = SubResource("WorldBoundaryShape2D_3dryh")
-
-[node name="Character1" parent="StaticBody2D" unique_id=316066722 instance=ExtResource("1_qxrlw")]
-position = Vector2(-42, -4)
-
-[node name="Character2" parent="StaticBody2D" unique_id=70363021 instance=ExtResource("2_wrm1d")]
-position = Vector2(43, -4)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1344718712]
 zoom = Vector2(4, 4)
+
+[node name="Character1" parent="." unique_id=316066722 instance=ExtResource("1_qxrlw")]
+position = Vector2(-42, -4)
+
+[node name="Character2" parent="." unique_id=70363021 instance=ExtResource("2_wrm1d")]
+position = Vector2(43, -4)
