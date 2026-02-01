@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlpsyvn8imf6k"]
+[gd_scene format=3 uid="uid://dlpsyvn8imf6k"]
 
 [ext_resource type="Texture2D" uid="uid://cow6etb1h2is7" path="res://Assets/OurStuff/BP.png" id="1_ul2td"]
 [ext_resource type="Script" uid="uid://citu48wv8mrl4" path="res://Scripts/character_1.tres.gd" id="1_yiwxm"]
@@ -50,37 +50,37 @@ radius = 5.0
 
 [sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_0u0ux"]
 
-[node name="Character1" type="CharacterBody2D" groups=["Players"]]
+[node name="Character1" type="CharacterBody2D" unique_id=860555225 groups=["Players"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_yiwxm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1286961035]
 position = Vector2(0, -15)
 scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_6nlah")
 animation = &"Paper"
 
-[node name="GroundHitbox" type="CollisionShape2D" parent="."]
+[node name="GroundHitbox" type="CollisionShape2D" parent="." unique_id=2128989117]
 shape = SubResource("RectangleShape2D_f101p")
 
-[node name="PlayerSwitch" type="AudioStreamPlayer2D" parent="."]
+[node name="PlayerSwitch" type="AudioStreamPlayer2D" parent="." unique_id=852612734]
 
-[node name="Run" type="AudioStreamPlayer2D" parent="."]
+[node name="Run" type="AudioStreamPlayer2D" parent="." unique_id=210101919]
 stream = ExtResource("4_ul2td")
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=174479972]
 stream = SubResource("AudioStreamRandomizer_uuxwk")
 
-[node name="PlayerHitbox" type="Area2D" parent="."]
+[node name="PlayerHitbox" type="Area2D" parent="." unique_id=300536009]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" unique_id=765821986]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_f101p")
 
-[node name="CollisionSound" type="AudioStreamPlayer2D" parent="PlayerHitbox"]
+[node name="CollisionSound" type="AudioStreamPlayer2D" parent="PlayerHitbox" unique_id=1202967445]
 stream = SubResource("AudioStreamPolyphonic_0u0ux")
 
 [connection signal="area_entered" from="PlayerHitbox" to="." method="_on_player_hitbox_area_entered"]
