@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://gta40bwt6b0m"]
+[gd_scene format=3 uid="uid://gta40bwt6b0m"]
 
+[ext_resource type="Texture2D" uid="uid://p7o0jovca5m8" path="res://Assets/OurStuff/BlueSlap.png" id="1_2qauy"]
 [ext_resource type="Script" uid="uid://boiay62ad1uj2" path="res://Scripts/SceneButton.gd" id="1_3bv8c"]
 [ext_resource type="PackedScene" uid="uid://dc046wr0glwda" path="res://Scenes/Intro.tscn" id="2_4flon"]
 
-[node name="BlueWin" type="Node2D"]
+[node name="BlueWin" type="Node2D" unique_id=598422855]
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="BlueSlap" type="Sprite2D" parent="." unique_id=2063121514]
+position = Vector2(432, 216)
+scale = Vector2(0.71083313, 0.7108333)
+texture = ExtResource("1_2qauy")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1769382095]
 offset_left = 352.0
 offset_top = 166.0
 offset_right = 802.0
@@ -13,7 +19,7 @@ offset_bottom = 266.0
 theme_override_font_sizes/font_size = 64
 text = "BLUE WINS!"
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1447264942]
 offset_left = 421.0
 offset_top = 402.0
 offset_right = 734.0

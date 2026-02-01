@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bj3snfo05q4f5" path="res://Assets/OurStuff/MaskS.png" id="5_5dcil"]
 [ext_resource type="AudioStream" uid="uid://bu0gf3hjw85eh" path="res://Assets/OurStuff/A1.wav" id="8_1ou03"]
 [ext_resource type="Script" uid="uid://boiay62ad1uj2" path="res://Scripts/SceneButton.gd" id="8_l06km"]
-[ext_resource type="PackedScene" uid="uid://cdmlcb4jl136f" path="res://Scenes/game.tscn" id="9_52y82"]
 [ext_resource type="AudioStream" uid="uid://dtw2yfyu8vg5n" path="res://Assets/OurStuff/A2.wav" id="9_ca05t"]
+[ext_resource type="PackedScene" uid="uid://dr6sqyqfdnm5g" path="res://Scenes/HowTo.tscn" id="10_f5xbv"]
 [ext_resource type="AudioStream" uid="uid://6sfa3prn3i4j" path="res://Assets/OurStuff/A3.wav" id="10_l06km"]
 [ext_resource type="AudioStream" uid="uid://dgtwwrrhtmjyb" path="res://Assets/OurStuff/A4.wav" id="11_52y82"]
 [ext_resource type="AudioStream" uid="uid://bxdvvhdpx2ttw" path="res://Assets/OurStuff/A5.wav" id="12_f5xbv"]
@@ -93,7 +93,7 @@ scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 96
 text = "Play!"
 script = ExtResource("8_l06km")
-TargetScene = ExtResource("9_52y82")
+TargetScene = ExtResource("10_f5xbv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1657472880 node_paths=PackedStringArray("panels")]
 position = Vector2(6193, 2400)
