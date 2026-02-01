@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://0y6mjn7va7pn" path="res://Assets/OurStuff/YP.png" id="1_7uny3"]
 [ext_resource type="Texture2D" uid="uid://decom3h6qyygx" path="res://Assets/OurStuff/YR.png" id="2_vynxn"]
 [ext_resource type="Texture2D" uid="uid://dg5ooq6ngnc8m" path="res://Assets/OurStuff/YS.png" id="3_m1gc2"]
+[ext_resource type="AudioStream" uid="uid://cttme2kc6jxbp" path="res://Assets/Sounds/Movements/WalkingSHort.mp3" id="4_40mip"]
+[ext_resource type="AudioStream" uid="uid://beqoof58d6foe" path="res://Assets/Sounds/Movements/Jump1.wav" id="5_d7cwo"]
+[ext_resource type="AudioStream" uid="uid://b6advqkan5fg4" path="res://Assets/Sounds/Movements/Jump2.wav" id="6_smipm"]
+[ext_resource type="AudioStream" uid="uid://bupyyu8owm52" path="res://Assets/Sounds/Movements/Jump3.wav" id="7_qns3o"]
 
 [sub_resource type="GDScript" id="GDScript_fwxho"]
 script/source = "extends CharacterBody2D
@@ -17,6 +21,8 @@ var cooldown = 0.0
 var player2 = 2
 var knockback_vel = Vector2.ZERO
 
+@onready var player_select = $PlayerSwitch
+
 func _physics_process(delta: float) -> void:
 	if cooldown > 0:
 		cooldown -= delta
@@ -26,16 +32,30 @@ func _physics_process(delta: float) -> void:
 	if cooldown <= 0:
 		if Input.is_action_pressed(\"ATKey7\"):
 			animated_sprite2.play(\"Rock\")
+			if player2 != 1:
+				var audio_stream = load(\"res://Assets/Sounds/Selection/RockSelect.wav\")
+				player_select.stream = audio_stream
+				player_select.play()
+				cooldown = COOLDOWN_TIME
 			player2 = 1
-			cooldown = COOLDOWN_TIME
+			
 		if Input.is_action_pressed(\"ATKey8\"):
 			animated_sprite2.play(\"Paper\")
+			if player2 != 2:
+				var audio_stream = load(\"res://Assets/Sounds/Selection/PaperSelect.wav\")
+				player_select.stream = audio_stream
+				player_select.play()
+				cooldown = COOLDOWN_TIME
 			player2 = 2
-			cooldown = COOLDOWN_TIME
+			
 		if Input.is_action_pressed(\"ATKey9\"):
 			animated_sprite2.play(\"Scissors\")
+			if player2 != 3:
+				var audio_stream = load(\"res://Assets/Sounds/Selection/ScissorsSelect.wav\")
+				player_select.stream = audio_stream
+				player_select.play()
+				cooldown = COOLDOWN_TIME
 			player2 = 3
-			cooldown = COOLDOWN_TIME
 	  
 	
 	# Add the gravity.
@@ -45,6 +65,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed(\"P2Jump\") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$Jump.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -59,6 +80,19 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
+	if is_on_floor() and Input.is_action_pressed(\"P2Right\"):
+		$Run.play()
+		if not is_on_floor():
+			$Run.stop()
+	if Input.is_action_just_released(\"P2Right\"):
+		$Run.stop()
+		
+	if is_on_floor() and Input.is_action_pressed(\"P2Left\"):
+		$Run.play()
+		if not is_on_floor():
+			$Run.stop()
+	if Input.is_action_just_released(\"P2Left\"):
+			$Run.stop()
 	# Handle Knockback
 	velocity += knockback_vel
 	knockback_vel = knockback_vel.move_toward(Vector2.ZERO, KNOCKBACK_DAMP * delta)
@@ -99,6 +133,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o645a"]
 size = Vector2(8, 2)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2mr30"]
+streams_count = 3
+stream_0/stream = ExtResource("5_d7cwo")
+stream_1/stream = ExtResource("6_smipm")
+stream_2/stream = ExtResource("7_qns3o")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_o645a"]
 radius = 5.0
 
@@ -115,6 +155,14 @@ animation = &"Paper"
 
 [node name="GroundHitbox" type="CollisionShape2D" parent="." unique_id=1691979835]
 shape = SubResource("RectangleShape2D_o645a")
+
+[node name="PlayerSwitch" type="AudioStreamPlayer2D" parent="." unique_id=1298198744]
+
+[node name="Run" type="AudioStreamPlayer2D" parent="." unique_id=1291640777]
+stream = ExtResource("4_40mip")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=1441886323]
+stream = SubResource("AudioStreamRandomizer_2mr30")
 
 [node name="PlayerHitbox" type="Area2D" parent="." unique_id=1373475303]
 collision_layer = 2
