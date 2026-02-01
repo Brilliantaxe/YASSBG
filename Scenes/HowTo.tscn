@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dr6sqyqfdnm5g"]
+
+[ext_resource type="Script" uid="uid://boiay62ad1uj2" path="res://Scripts/SceneButton.gd" id="1_dk08m"]
+[ext_resource type="PackedScene" uid="uid://cdmlcb4jl136f" path="res://Scenes/game.tscn" id="2_dk08m"]
+
+[node name="HowTo" type="Node2D" unique_id=2027767877]
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=2047067410]
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 814.0
+offset_bottom = 648.0
+theme_override_font_sizes/font_size = 24
+text = "HOW TO PLAY
+
+BLUE is controlled with (w,a,s,d) and (1,2,3)
+YELLOW is controlled with (i,j,k,l) and (7,8,9)
+
+To win you need to reduce the enemy's Health to 0
+
+When you bump into eachother, you will deal damager to eachother following the logic of Rock, Paper, Scissors.
+
+The buttons (1,2,3) and (7,8,9) Change you between (Rock, Paper, Scissors)
+You can only change every 3 seconds
+
+GOOD LUCK!"
+wrap_mode = 1
+
+[node name="Button" type="Button" parent="." unique_id=701712062]
+offset_left = 934.0
+offset_top = 275.0
+offset_right = 1132.0
+offset_bottom = 350.0
+theme_override_font_sizes/font_size = 48
+text = "Play!"
+script = ExtResource("1_dk08m")
+TargetScene = ExtResource("2_dk08m")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
