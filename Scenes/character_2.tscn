@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1mq1nkrncejw"]
+[gd_scene format=3 uid="uid://c1mq1nkrncejw"]
 
 [ext_resource type="Texture2D" uid="uid://0y6mjn7va7pn" path="res://Assets/OurStuff/YP.png" id="1_7uny3"]
 [ext_resource type="Script" uid="uid://cf0xrd4c08m2l" path="res://Scripts/character_2.tres.gd" id="1_d7cwo"]
@@ -48,32 +48,32 @@ stream_2/stream = ExtResource("7_qns3o")
 [sub_resource type="CircleShape2D" id="CircleShape2D_o645a"]
 radius = 5.0
 
-[node name="Character2" type="CharacterBody2D" groups=["Players"]]
+[node name="Character2" type="CharacterBody2D" unique_id=1003576466 groups=["Players"]]
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_d7cwo")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1350549548]
 position = Vector2(0, -15)
 scale = Vector2(0.02, 0.02)
 sprite_frames = SubResource("SpriteFrames_m1gc2")
 animation = &"Paper"
 
-[node name="GroundHitbox" type="CollisionShape2D" parent="."]
+[node name="GroundHitbox" type="CollisionShape2D" parent="." unique_id=1273922045]
 shape = SubResource("RectangleShape2D_o645a")
 
-[node name="PlayerSwitch" type="AudioStreamPlayer2D" parent="."]
+[node name="PlayerSwitch" type="AudioStreamPlayer2D" parent="." unique_id=1195365566]
 
-[node name="Run" type="AudioStreamPlayer2D" parent="."]
+[node name="Run" type="AudioStreamPlayer2D" parent="." unique_id=1606358673]
 stream = ExtResource("4_40mip")
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+[node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=336286890]
 stream = SubResource("AudioStreamRandomizer_2mr30")
 
-[node name="PlayerHitbox" type="Area2D" parent="."]
+[node name="PlayerHitbox" type="Area2D" parent="." unique_id=1099068033]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox" unique_id=8259220]
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_o645a")

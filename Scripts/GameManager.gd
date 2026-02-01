@@ -1,4 +1,5 @@
 extends Node
+@onready var in_game_music: AudioStreamPlayer2D = $"../InGameMusic"
 
 var HpBar1: ProgressBar
 var HpBar2: ProgressBar
@@ -57,3 +58,4 @@ func _ready():
 	set_timer_1(3)
 	set_timer_2(3)
 	set_hp_bars() 
+	$"../InGameMusic".play()
