@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://dc046wr0glwda"]
+
+[ext_resource type="Texture2D" uid="uid://cath48i1e8put" path="res://Assets/OurStuff/PaperVfx.jpeg" id="1_ca05t"]
+[ext_resource type="Texture2D" uid="uid://bt5u8ygledux7" path="res://Assets/OurStuff/Comic 1.png" id="1_vmpge"]
+[ext_resource type="Texture2D" uid="uid://bk6fdwjf7bf54" path="res://Assets/OurStuff/Comic 2.png" id="2_d0kpp"]
+[ext_resource type="Texture2D" uid="uid://4610modccpup" path="res://Assets/OurStuff/MaskP.png" id="3_tay7t"]
+[ext_resource type="Texture2D" uid="uid://cfocinymquca" path="res://Assets/OurStuff/Comic 3.png" id="3_u3s32"]
+[ext_resource type="Script" uid="uid://cys7jmt8tsj5" path="res://Scenes/CameraTravel.gd" id="4_d0kpp"]
+[ext_resource type="Texture2D" uid="uid://bjapa1pgy0mt0" path="res://Assets/OurStuff/MaskR.png" id="4_jw2oo"]
+[ext_resource type="Texture2D" uid="uid://bj3snfo05q4f5" path="res://Assets/OurStuff/MaskS.png" id="5_5dcil"]
+[ext_resource type="AudioStream" uid="uid://bu0gf3hjw85eh" path="res://Assets/OurStuff/A1.wav" id="8_1ou03"]
+[ext_resource type="AudioStream" uid="uid://dtw2yfyu8vg5n" path="res://Assets/OurStuff/A2.wav" id="9_ca05t"]
+[ext_resource type="AudioStream" uid="uid://6sfa3prn3i4j" path="res://Assets/OurStuff/A3.wav" id="10_l06km"]
+[ext_resource type="AudioStream" uid="uid://dgtwwrrhtmjyb" path="res://Assets/OurStuff/A4.wav" id="11_52y82"]
+[ext_resource type="AudioStream" uid="uid://bxdvvhdpx2ttw" path="res://Assets/OurStuff/A5.wav" id="12_f5xbv"]
+[ext_resource type="AudioStream" uid="uid://cbbstlgwdc025" path="res://Assets/OurStuff/A6.wav" id="13_a7idc"]
+[ext_resource type="AudioStream" uid="uid://haeu1v0fgng3" path="res://Assets/OurStuff/A7.wav" id="14_kial4"]
+[ext_resource type="AudioStream" uid="uid://y4psdwv526ip" path="res://Assets/OurStuff/A8.wav" id="15_grxap"]
+[ext_resource type="AudioStream" uid="uid://dko8qlq5d2xep" path="res://Assets/OurStuff/A9.wav" id="16_25bha"]
+[ext_resource type="AudioStream" uid="uid://d4k1gqb10eqsl" path="res://Assets/OurStuff/A10.wav" id="17_coauf"]
+[ext_resource type="AudioStream" uid="uid://iwe51c285k8p" path="res://Assets/OurStuff/A11.wav" id="18_uwwhy"]
+[ext_resource type="AudioStream" uid="uid://b24au25rdhdxs" path="res://Assets/OurStuff/A12.wav" id="19_nt5dj"]
+[ext_resource type="AudioStream" uid="uid://bd6os7ymbmybv" path="res://Assets/OurStuff/A13.wav" id="20_somt5"]
+[ext_resource type="AudioStream" uid="uid://b0kt88w0excml" path="res://Assets/OurStuff/A14.wav" id="21_6hi2k"]
+[ext_resource type="AudioStream" uid="uid://bjkdoi7doq6qe" path="res://Assets/OurStuff/A15.wav" id="22_x77pb"]
+[ext_resource type="AudioStream" uid="uid://chglfg3y6kkkj" path="res://Assets/OurStuff/A16.wav" id="23_f4nfo"]
+[ext_resource type="AudioStream" uid="uid://cpqrt1fa5qgkq" path="res://Assets/OurStuff/A17.wav" id="24_gxjq7"]
+[ext_resource type="AudioStream" uid="uid://cetxif8sv3pg8" path="res://Assets/OurStuff/A18.wav" id="25_fmp0j"]
+
+[node name="Intro" type="Node2D" unique_id=1751027052]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=915194421]
+texture_repeat = 2
+position = Vector2(3753, 1848.9999)
+scale = Vector2(14, 14)
+texture = ExtResource("1_ca05t")
+
+[node name="Comic1" type="Sprite2D" parent="." unique_id=1171600890]
+position = Vector2(1201, 1900)
+texture = ExtResource("1_vmpge")
+
+[node name="Comic2" type="Sprite2D" parent="." unique_id=1379873008]
+position = Vector2(3700, 1902)
+texture = ExtResource("2_d0kpp")
+
+[node name="MaskP" type="Sprite2D" parent="." unique_id=2129341625]
+position = Vector2(3717.9995, 3035)
+rotation = 0.16251086
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_tay7t")
+
+[node name="MaskR" type="Sprite2D" parent="." unique_id=1071552639]
+position = Vector2(3030.9998, 3044.9998)
+rotation = 0.030369446
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_jw2oo")
+
+[node name="MaskS" type="Sprite2D" parent="." unique_id=1642284983]
+position = Vector2(4460, 2994.9998)
+rotation = -0.11867111
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_5dcil")
+
+[node name="Comic3" type="Sprite2D" parent="." unique_id=1862122942]
+position = Vector2(6242, 1905)
+texture = ExtResource("3_u3s32")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Comic3" unique_id=2000507023]
+offset_left = -498.0
+offset_top = 55.0
+offset_right = 502.0
+offset_bottom = 255.0
+theme_override_colors/default_color = Color(3.465414e-06, 0.7268547, 0.96327466, 1)
+theme_override_colors/font_outline_color = Color(0.7463203, 0.9031725, 1, 1)
+theme_override_font_sizes/normal_font_size = 96
+text = "RPS - DEATH TAG"
+scroll_active = false
+
+[node name="Button" type="Button" parent="Comic3" unique_id=546002085]
+offset_left = -321.0
+offset_top = 719.0
+offset_right = -94.0
+offset_bottom = 859.0
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 96
+text = "Play!"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1048753833 node_paths=PackedStringArray("panels")]
+position = Vector2(6193, 2400)
+zoom = Vector2(0.5, 0.5)
+script = ExtResource("4_d0kpp")
+panels = [NodePath("../Path/P1-1"), NodePath("../Path/P1-2"), NodePath("../Path/P2"), NodePath("../Path/P3"), NodePath("../Path/P4"), NodePath("../Path/P5"), NodePath("../Path/P6"), NodePath("../Path/P7"), NodePath("../Path/P8"), NodePath("../Path/P9"), NodePath("../Path/P10"), NodePath("../Path/P11"), NodePath("../Path/P12"), NodePath("../Path/P13"), NodePath("../Path/P14"), NodePath("../Path/P15"), NodePath("../Path/P16"), NodePath("../Path/P17")]
+audios = Array[AudioStream]([ExtResource("8_1ou03"), ExtResource("9_ca05t"), ExtResource("10_l06km"), ExtResource("11_52y82"), ExtResource("12_f5xbv"), ExtResource("13_a7idc"), ExtResource("14_kial4"), ExtResource("15_grxap"), ExtResource("16_25bha"), ExtResource("17_coauf"), ExtResource("18_uwwhy"), ExtResource("19_nt5dj"), ExtResource("20_somt5"), ExtResource("21_6hi2k"), ExtResource("22_x77pb"), ExtResource("23_f4nfo"), ExtResource("24_gxjq7"), ExtResource("25_fmp0j")])
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D" unique_id=1235907484]
+
+[node name="Path" type="Node" parent="." unique_id=221351587]
+
+[node name="P1-1" type="Marker2D" parent="Path" unique_id=612082154]
+position = Vector2(814, 470)
+scale = Vector2(0.7, 0.7)
+
+[node name="P1-2" type="Marker2D" parent="Path" unique_id=1423796840]
+position = Vector2(1570, 470)
+scale = Vector2(0.8, 0.8)
+
+[node name="P2" type="Marker2D" parent="Path" unique_id=1839977627]
+position = Vector2(640, 1525)
+scale = Vector2(0.6, 0.6)
+
+[node name="P3" type="Marker2D" parent="Path" unique_id=608003122]
+position = Vector2(1820, 1380)
+scale = Vector2(1.2, 1.2)
+
+[node name="P4" type="Marker2D" parent="Path" unique_id=316173436]
+position = Vector2(1830, 2100)
+
+[node name="P5" type="Marker2D" parent="Path" unique_id=904891862]
+position = Vector2(870, 3000)
+scale = Vector2(0.55, 0.55)
+
+[node name="P6" type="Marker2D" parent="Path" unique_id=1621456674]
+position = Vector2(2060, 3150)
+scale = Vector2(1.3, 1.3)
+
+[node name="P7" type="Marker2D" parent="Path" unique_id=1955604195]
+position = Vector2(3180, 475)
+scale = Vector2(0.8, 0.8)
+
+[node name="P8" type="Marker2D" parent="Path" unique_id=1717636281]
+position = Vector2(4300, 475)
+scale = Vector2(1.1, 1.1)
+
+[node name="P9" type="Marker2D" parent="Path" unique_id=1460823929]
+position = Vector2(4250, 1180)
+scale = Vector2(0.9, 0.9)
+
+[node name="P10" type="Marker2D" parent="Path" unique_id=507402212]
+position = Vector2(3150, 1290)
+
+[node name="P11" type="Marker2D" parent="Path" unique_id=1492761381]
+position = Vector2(2930, 2070)
+scale = Vector2(0.9, 0.9)
+
+[node name="P12" type="Marker2D" parent="Path" unique_id=1932513067]
+position = Vector2(4360, 2070)
+scale = Vector2(0.9, 0.9)
+
+[node name="P13" type="Marker2D" parent="Path" unique_id=668192748]
+position = Vector2(2950, 3000)
+scale = Vector2(0.9, 0.9)
+
+[node name="P14" type="Marker2D" parent="Path" unique_id=1880597100]
+position = Vector2(3700, 3050)
+scale = Vector2(0.9, 0.9)
+
+[node name="P15" type="Marker2D" parent="Path" unique_id=1437771843]
+position = Vector2(4450, 2975)
+
+[node name="P16" type="Marker2D" parent="Path" unique_id=1549461254]
+position = Vector2(6225, 750)
+scale = Vector2(0.5, 0.5)
+
+[node name="P17" type="Marker2D" parent="Path" unique_id=703936448]
+position = Vector2(6200, 2400)
+scale = Vector2(0.52, 0.52)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1417239258]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=77926287]
+offset_left = 838.0
+offset_top = 538.0
+offset_right = 1121.0
+offset_bottom = 613.0
+theme_override_font_sizes/font_size = 48
+text = "Story / Next"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="Camera2D" method="_on_button_pressed"]
