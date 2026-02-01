@@ -11,9 +11,17 @@ config_version=5
 [application]
 
 config/name="game jam  1"
-run/main_scene="uid://cdmlcb4jl136f"
-config/features=PackedStringArray("4.6", "Forward Plus")
+run/main_scene="uid://dc046wr0glwda"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="game jam  1"
+
+[editor]
+
+version_control/autoload_on_startup=true
 
 [global_group]
 
